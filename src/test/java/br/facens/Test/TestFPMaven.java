@@ -61,8 +61,8 @@ public class TestFPMaven {
     
     @Test
     public void testAliquota_INSS_input_3500_result_11_() {
-        Pagamento instance = new Pagamento(350.00);
-        double expResult = 0.1;
+        Pagamento instance = new Pagamento(3500.00);
+        double expResult = 0.11;
         double result = instance.Aliquota_INSS();
         assertEquals(expResult, result,0.0);
     }
