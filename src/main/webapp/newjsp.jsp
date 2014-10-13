@@ -13,6 +13,7 @@
         <%
             String valINSS = "";
             String valIRRF = "";
+            String resposta = "";
             String salario = (request.getParameter("txtSalario") == null? "0" : request.getParameter("txtSalario"));
             Pagamento pag = new Pagamento(Double.parseDouble(salario));
             Double perinss = (pag.Aliquota_INSS()*100);
@@ -23,6 +24,8 @@
                 valIRRF = String.valueOf(pag.Aliquota_IRRF() *Double.parseDouble(salario));
 
                 String ValReceber = String.valueOf(pag.Calcular_Pagamento());
+                if (!ValReceber.isEmpty())
+                    resposta = "Cálculo realizado com sucesso";
         %>   
         
         
@@ -44,18 +47,22 @@
     </head>
     <body>
         <form action="newjsp.jsp" method="POST" class="well">
-            <div class="page-header">
+            <div class="page-header" id="principal">
                  <h1>Folha de Pagamento</h1>
               
                 Nome Funcionário:<br/> 
-                <input type="text" name="txtFuncionario" class="form-control" style="width: 250px;" required>
+                <input type="text" name="txtFuncionario" id="funcionario" class="form-control" style="width: 250px;" required>
                 Salário Bruto: <br/>
                 <input  type="text" name="txtSalario" id="salario" class="form-control" style="width: 250px;" required value=" <%= salario %>" >
+                <input type="submit" value="Calcular" class=" btn btn-primary btn-large"><br>
                 %INSS: <%= perinss %>  Valor: <%= valINSS %><br>
                 %IRRF: <%= perirrf %> Valor: <%= valIRRF %><br>
                 Valor Descontos: <%= valINSS %><br>
                 Valor a Receber: <%= ValReceber %><br>
-                <input type="submit" value="Calcular" class=" btn btn-primary btn-large">
+                <div id="teste">
+                    <%=resposta%>
+                </div>
+                
              </div> 
         </form>
     </body>
