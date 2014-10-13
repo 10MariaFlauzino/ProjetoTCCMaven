@@ -62,7 +62,7 @@ public class TestSelenium {
     driver.findElement(By.id("funcionario")).clear();
     driver.findElement(By.id("salario")).clear();
     driver.findElement(By.xpath("//input[@value='Calcular']")).click();
-    
+    assertTrue(driver.findElement(By.id("teste")).getText().matches("Cálculo não realizado com sucesso"));
     //Alert alerta = driver.switchTo().alert();
     //assert.alerta.equals("Por favor, preencha este campo");
   }
