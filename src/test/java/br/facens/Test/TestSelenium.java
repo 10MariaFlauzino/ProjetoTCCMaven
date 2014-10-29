@@ -58,7 +58,7 @@ public class TestSelenium {
     driver.findElement(By.xpath("//input[@value='Calcular']")).click();
     assertTrue(driver.findElement(By.id("teste")).getText().matches("Cálculo realizado com sucesso"));
   }
-  
+
    @Test
   public void testCamposPreenchidos() throws Exception {   
     driver.findElement(By.id("funcionario")).clear();
@@ -98,10 +98,8 @@ public class TestSelenium {
   
   private boolean ExisteMensagem() {
     try {
-     //if (driver.findElement(By.xpath("//*[contains(.,'" + "Cáluclo realizado com sucesso" + "')]")) != null)
-      driver.getPageSource().contains("Cáluclo realizado com sucesso");
-      return true;
-     //else
+        //if (driver.findElement(By.xpath("//*[contains(.,'" + "Cáluclo realizado com sucesso" + "')]")) != null)
+        return driver.getPageSource().contains("Cáluclo realizado com sucesso"); //else
     } catch (NoAlertPresentException e) {
       return false;
     }

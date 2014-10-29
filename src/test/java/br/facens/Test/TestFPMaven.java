@@ -38,11 +38,6 @@ public class TestFPMaven {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
     @Test
     public void testAliquota_INSS_input_1317_result_8_() {
         Pagamento instance = new Pagamento(1317.07);
